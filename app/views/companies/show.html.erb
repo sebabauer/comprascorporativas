@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<img src="<%= @company.logo %>">
+<p>
+</p>
+
+
+<p>
+  <strong>Rut:</strong>
+  <%= @company.rut %> - <%= @company.dv %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @company.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @company.description %>
+</p>
+
+
+<p>
+  <strong>Web:</strong>
+  <%= @company.web %>
+</p>
+
+
+<% @company.keywords.each do |keyword| %>
+  <div class="bci-chip">
+    <%= keyword.description %> <a href="<%= remove_keyword_company_path(@company, keyword) %>" data-method="delete"><i class="bci-chip__close material-icons">cancel</i></a>
+  </div>
+<% end %>
+
+<div class="bci-input">
+  <%= form_tag(add_keyword_company_path(@company)) do %>
+  <%= text_field_tag "description", nil, placeholder: 'Ingrese un nuevo Keyword y presione Enter' %>
+  <% end %>
+</div>
+
+
+
+
+<br>
+<br>
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>

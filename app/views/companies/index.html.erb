@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Proveedores</h1>
+
+<div class="row">
+  <% @companies.each_slice(3) do |row| %>
+    <% row.each do |company| %>
+      <div class="col s12 m6 l2">
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="<%= company.logo %>">
+            <!-- <span class="card-title"><%= company.name %></span> -->
+          </div>
+          <div class="card-content">
+            <span class="card-title activator green-text text-darken-1 "><%= company.name %><i class="material-icons right">more_vert</i></span>
+            <!-- <p><%= company.description %></p> -->
+            <br>
+            <br>
+            <button class="bci-btn bci-btn--shadow bci-waves-effect bci-color--green">Ver Más</button>
+
+
+          </div>
+          <div class="card-reveal">
+            <span class="card-title green-text text-darken-1"><%= company.name %><i class="material-icons right">close</i></span>
+            <br>
+            <h7><strong>Descripción: </strong><%= company.description %></h7>
+            <p><strong>RUT:  </strong><%= company.rut %> - <%= company.dv %> </p>
+            <td><%= company.keywords.pluck(:description).join(", ")%></td>
+            <p><a href="<%= company.web %>">WEBSITE</a></p>
+            <button class="bci-btn bci-btn--shadow bci-waves-effect bci-color--green"><%= link_to 'Ver Detalle', company %></button>
+          </div>
+        </div>
+      </div>
+
+      <% end %>
+  <% end %>
+  <div class="w-100" style="margin-top:20px"></div>
+</div>
+
+<br>
+
+<!-- <div class="row">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img src="logolabswhite.png">
+          <span class="card-title">Card Title</span>
+        </div>
+        <div class="card-content">
+          <p>I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively.</p>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+<%= link_to 'New Company', new_company_path %>
