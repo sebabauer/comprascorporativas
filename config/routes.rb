@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :services
+  devise_for :users
   resources :keywords
   resources :companies do
     member do
