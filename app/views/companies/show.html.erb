@@ -41,6 +41,31 @@
   <% end %>
 </div>
 
+<h2> Servicios </h2>
+
+
+
+<% @company.services.each do |service| %>
+<div class="bci-card bci-card-side-pic">
+      <div class="bci-card__header">
+            <div class="bci-card__header--title">
+                  <%= service.name %>
+                  <div class="bci-card__header--subtitle">
+                        <%= service.description %>
+                  </div>
+            </div>
+            <div class="bci-pic">
+                  <img class="bci-pic__img" src="<%= service.image %>">
+            </div>
+      </div>
+      <div class="bci-card__actions">
+            <button class="bci-btn bci-color bci-waves-effect waves-light">Ver Servicio</button>
+            <button class="bci-btn bci-color bci-waves-effect waves-light">ACTION 2</button>
+      </div>
+</div>
+
+<% end %>
+
 
 
 
